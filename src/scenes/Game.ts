@@ -3,9 +3,18 @@ import { lang } from "../lang";
 
 export class GameScene extends Phaser.Scene {
   mushroom!: Phaser.GameObjects.Sprite;
+  // input!: Phaser.Input.InputManager;
 
   constructor() {
-    super({ key: "GameScene" });
+    super({
+      key: "GameScene",
+      // physics: {
+      //   default: "arcade",
+      //   arcade: {
+      //     gravity: { y: 0 },
+      //   },
+      // },
+    });
   }
 
   init() {}

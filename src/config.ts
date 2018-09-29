@@ -3,4 +3,5 @@ export const config: GameConfig = {
   parent: "canvas",
   width: 800,
   height: 600,
+  backgroundColor: "#000000",
 };
