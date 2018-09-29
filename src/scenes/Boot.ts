@@ -1,3 +1,4 @@
+// import * as Phaser from "phaser";
 import { load } from "webfontloader";
 
 export class BootScene extends Phaser.Scene {

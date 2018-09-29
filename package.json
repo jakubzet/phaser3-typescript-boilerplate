@@ -1,30 +1,37 @@
 {
   "name": "phaser3-typescript-boilerplate",
   "version": "1.0.0",
+  "author": "Jakub Żywiec",
   "description": "A Phaser 3 TypeScript Boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakubzet/phaser3-typescript-boilerplate.git"
+  },
+  "license": "MIT",
+  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
+  "bugs": {
+    "url": "https://github.com/jakubzet/phaser3-typescript-boilerplate/issues"
+  },
   "scripts": {
     "build:dev": "webpack --env dev",
     "build:prod": "webpack --env prod",
     "start": "webpack-dev-server -d --env dev",
     "watch": "webpack --env dev --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jakubzet/phaser3-typescript-boilerplate.git"
-  },
-  "author": "Jakub Żywiec",
-  "license": "MIT",
-  "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
-  "bugs": {
-    "url": "https://github.com/jakubzet/phaser3-typescript-boilerplate/issues"
-  },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-typescript": "^7.1.0",
     "@types/node": "^10.11.3",
     "@types/webfontloader": "^1.6.29",
     "@types/webpack": "^4.4.13",
-    "raw-loader": "^0.5.1",
-    "ts-loader": "^5.2.1",
-    "ts-node": "^7.0.1",
+    "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^4.5.2",
+    "html-webpack-plugin": "^3.2.0",
+    "source-map-loader": "^0.2.4",
     "typescript": "^3.1.1",
     "webfontloader": "^1.6.28",
     "webpack": "^4.20.2",
@@ -32,9 +39,7 @@
     "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
-    "copy-webpack-plugin": "^4.5.2",
-    "html-webpack-plugin": "^3.2.0",
-    "idiom.js": "^1.0.1",
-    "phaser": "^3.13.0"
+    "phaser": "^3.13.0",
+    "idiom.js": "^1.0.1"
   }
 }

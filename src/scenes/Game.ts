@@ -19,9 +19,9 @@ export class GameScene extends Phaser.Scene {
 
     this.add.existing(this.mushroom);
 
-    this.add.text(100, 100, bannerText, {
-      font: "64px Bangers",
-      fill: "#7744ff",
+    this.add.text(20, 10, bannerText, {
+      font: "42px Bangers",
+      fill: "#2299ff",
       smoothed: false,
     });
   }

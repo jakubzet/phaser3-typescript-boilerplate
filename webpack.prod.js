@@ -13,18 +13,6 @@ const config = {
     publicPath: "./",
     filename: "[name].min.js",
   },
-  module: {
-    rules: [
-      {
-        test: /\.ts?$/,
-        use: "ts-loader",
-      },
-      {
-        test: [/\.vert$/, /\.frag$/],
-        use: "raw-loader",
-      },
-    ],
-  },
   optimization: {
     minimize: true,
     splitChunks: {
@@ -36,6 +24,19 @@ const config = {
         },
       },
     },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: "babel-loader",
+      },
+      {
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre",
+      },
+    ],
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
@@ -51,11 +52,6 @@ const config = {
       {
         from: "./assets",
         to: "./assets",
-        force: true,
-      },
-      {
-        from: "./app.css",
-        to: "./app.css",
         force: true,
       },
     ]),
