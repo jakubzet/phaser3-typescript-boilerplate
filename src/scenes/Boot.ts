@@ -1,11 +1,11 @@
-// import * as Phaser from "phaser";
+import keys from "../constants/keys";
 import { load } from "webfontloader";
 
 export class BootScene extends Phaser.Scene {
   fontsReady: boolean;
 
   constructor() {
-    super({ key: "BootScene" });
+    super({ key: keys.scenes.BootScene });
     this.fontsReady = false;
   }
 
@@ -14,8 +14,10 @@ export class BootScene extends Phaser.Scene {
   };
 
   preload() {
-    this.load.image("loaderBg", "./assets/images/loader-bg.png");
-    this.load.image("loaderBar", "./assets/images/loader-bar.png");
+    this.load.path = "../assets/";
+
+    this.load.image("loaderBg", "images/loader-bg.png");
+    this.load.image("loaderBar", "images/loader-bar.png");
 
     this.add.text(100, 100, "Loading fonts...");
 
@@ -29,7 +31,7 @@ export class BootScene extends Phaser.Scene {
 
   update() {
     if (this.fontsReady) {
-      this.scene.start("SplashScene");
+      this.scene.start(keys.scenes.SplashScene);
     }
   }
 }

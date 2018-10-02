@@ -1,5 +1,7 @@
 const keys = {
   scenes: {
+    BootScene: "BootScene",
+    SplashScene: "SplashScene",
     GameScene: "GameScene",
   },
   sprites: {

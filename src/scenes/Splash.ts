@@ -1,6 +1,8 @@
+import keys from "../constants/keys";
+
 export class SplashScene extends Phaser.Scene {
   constructor() {
-    super({ key: "SplashScene" });
+    super({ key: keys.scenes.SplashScene });
   }
 
   preload() {
@@ -9,7 +11,7 @@ export class SplashScene extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start("GameScene");
+    this.scene.start(keys.scenes.GameScene);
   }
 
   update() {}
