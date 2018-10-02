@@ -17,7 +17,8 @@
     "build:dev": "webpack --env dev",
     "build:prod": "webpack --env prod",
     "start": "webpack-dev-server -d --env dev",
-    "watch": "webpack --env dev --watch"
+    "watch": "webpack --env dev --watch",
+    "generate:sprite": "node ./generators/sprite.js -t -ab=2 -c false -p no some additional data 2 --argsis awesome --another=1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -32,7 +33,9 @@
     "babel-loader": "^8.0.4",
     "copy-webpack-plugin": "^4.5.2",
     "html-webpack-plugin": "^3.2.0",
+    "inquirer": "^6.2.0",
     "lodash.mergewith": "^4.6.1",
+    "node-args": "^2.1.8",
     "source-map-loader": "^0.2.4",
     "typescript": "^3.1.1",
     "webfontloader": "^1.6.28",

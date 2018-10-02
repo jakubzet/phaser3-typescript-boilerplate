@@ -1,3 +1,5 @@
+import keys from "../constants/keys";
+
 //import { Mushroom } from "../sprites/Mushroom";
 import { Player } from "../scripts/Player";
 import { lang } from "../lang";
@@ -13,7 +15,7 @@ export class GameScene extends Phaser.Scene {
   constructor() {
     super({
       // Setting scene key
-      key: "GameScene",
+      key: keys.scenes.GameScene,
 
       // Adding physics
       physics: {
