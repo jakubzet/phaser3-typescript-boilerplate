@@ -70,7 +70,7 @@ export class GameScene extends Phaser.Scene {
     );
 
     // Adding player
-    this.player = new Player(this, spawn.x, spawn.y);
+    this.player = new Player(this, keys.sprites.mushroom, spawn.x, spawn.y);
 
     // Setting collisions
     this.player.sprite.setCollideWorldBounds(true);

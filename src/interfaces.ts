@@ -8,3 +8,10 @@ export interface CordovaApp {
   onDeviceReady: () => void;
   receivedEvent: (id: string) => void;
 }
+
+export interface ControlsScheme {
+  left: Phaser.Input.Keyboard.Key;
+  up: Phaser.Input.Keyboard.Key;
+  right: Phaser.Input.Keyboard.Key;
+  down: Phaser.Input.Keyboard.Key;
+}

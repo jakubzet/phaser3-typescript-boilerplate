@@ -1,45 +1,45 @@
 // This script is TODO
+import keys from "../constants/keys";
+import { ControlsScheme } from "../interfaces";
 
 export class Player {
-  keys: Phaser.Input.Keyboard.KeyCodes;
+  buttons: ControlsScheme;
   sprite: Phaser.Physics.Arcade.Sprite;
   scene: Phaser.Scene;
 
-  constructor(scene, x, y) {
+  constructor(scene: Phaser.Scene, spriteKey: string, x: number, y: number) {
     this.scene = scene;
-
-    // Create the animations we need from the player spritesheet
-    // const anims = scene.anims;
-    // anims.create({
-    //   key: "player-idle",
-    //   frames: anims.generateFrameNumbers("player", { start: 0, end: 3 }),
-    //   frameRate: 3,
-    //   repeat: -1,
-    // });
-    // anims.create({
-    //   key: "player-run",
-    //   frames: anims.generateFrameNumbers("player", { start: 8, end: 15 }),
-    //   frameRate: 12,
-    //   repeat: -1,
-    // });
 
     // Create the physics-based sprite that we will move around and animate
     this.sprite = scene.physics.add
-      .sprite(x, y, "mushroom", 0)
+      .sprite(x, y, spriteKey, 0)
       .setDrag(1000, 0)
       .setMaxVelocity(300, 400)
       .setSize(64, 64)
       .setOffset(0, 0);
 
-    // Track the arrow keys & WASD
-    const { LEFT, RIGHT, UP, W, A, D } = Phaser.Input.Keyboard.KeyCodes;
-    this.keys = scene.input.keyboard.addKeys({
+    // Create the animations we need from the player spritesheet
+    // const anims = scene.anims;
+    // anims.create({
+    //   key: keys.anims.playerIdle,
+    //   frames: anims.generateFrameNumbers("player", { start: 0, end: 3 }),
+    //   frameRate: 3,
+    //   repeat: -1,
+    // });
+    // anims.create({
+    //   key: keys.anims.playerRun,
+    //   frames: anims.generateFrameNumbers("player", { start: 8, end: 15 }),
+    //   frameRate: 12,
+    //   repeat: -1,
+    // });
+
+    // Track the arrow keys
+    const { LEFT, RIGHT, UP, DOWN } = Phaser.Input.Keyboard.KeyCodes;
+    this.buttons = scene.input.keyboard.addKeys({
       left: LEFT,
       right: RIGHT,
       up: UP,
-      w: W,
-      a: A,
-      d: D,
+      down: DOWN,
     });
   }
 
@@ -48,17 +48,15 @@ export class Player {
   }
 
   update() {
-    const { keys, sprite } = this;
+    const { buttons, sprite } = this;
     const onGround = sprite.body.blocked.down;
     const acceleration = onGround ? 600 : 200;
 
-    // Apply horizontal acceleration when left/a or right/d are applied
-    if (keys.left.isDown || keys.a.isDown) {
+    // Apply horizontal acceleration and flip the sprite when left or right are applied
+    if (buttons.left.isDown) {
       sprite.setAccelerationX(-acceleration);
-      // No need to have a separate set of graphics for running to the left & to the right. Instead
-      // we can just mirror the sprite.
       sprite.setFlipX(true);
-    } else if (keys.right.isDown || keys.d.isDown) {
+    } else if (buttons.right.isDown) {
       sprite.setAccelerationX(acceleration);
       sprite.setFlipX(false);
     } else {
@@ -66,14 +64,14 @@ export class Player {
     }
 
     // Only allow the player to jump if they are on the ground
-    if (onGround && (keys.up.isDown || keys.w.isDown)) {
+    if (onGround && buttons.up.isDown) {
       sprite.setVelocityY(-500);
     }
 
     // Update the animation/texture based on the state of the player
     if (onGround) {
-      //if (sprite.body.velocity.x !== 0) sprite.anims.play("player-run", true);
-      //else sprite.anims.play("player-idle", true);
+      //if (sprite.body.velocity.x !== 0) sprite.anims.play(keys.anims.playerRun, true);
+      //else sprite.anims.play(keys.anims.playerIdle, true);
     } else {
       //sprite.anims.stop();
       //sprite.setTexture("player", 10);

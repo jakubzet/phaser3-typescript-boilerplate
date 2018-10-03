@@ -7,6 +7,10 @@ const keys = {
   sprites: {
     mushroom: "mushroom",
   },
+  anims: {
+    playerIdle: "playerIdle",
+    playerRun: "playerRun",
+  },
   images: {
     loaderBar: "LoaderBar",
     loaderBg: "LoaderBg",
