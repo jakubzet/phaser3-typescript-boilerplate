@@ -5,13 +5,18 @@ export class SplashScene extends Phaser.Scene {
     super({ key: keys.scenes.SplashScene });
   }
 
+  init() {}
+
   preload() {
     // Load your assets here
-    this.load.image("mushroom", "assets/images/mushroom2.png");
+    this.load.path = "../assets/";
+    this.load.image(keys.sprites.mushroom, "images/mushroom2.png");
   }
 
   create() {
-    this.scene.start(keys.scenes.GameScene);
+    this.scene.start(keys.scenes.GameScene, {
+      passedData: true,
+    });
   }
 
   update() {}

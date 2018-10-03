@@ -1,6 +1,4 @@
 import keys from "../constants/keys";
-
-//import { Mushroom } from "../sprites/Mushroom";
 import { Player } from "../scripts/Player";
 import { lang } from "../lang";
 
@@ -10,16 +8,13 @@ export class GameScene extends Phaser.Scene {
   map!: Phaser.Tilemaps.Tilemap;
   bgLayer!: Phaser.Tilemaps.DynamicTilemapLayer;
   groundLayer!: Phaser.Tilemaps.DynamicTilemapLayer;
-  //mushroom!: Phaser.GameObjects.Sprite;
 
   constructor() {
     super({
-      // Setting scene key
       key: keys.scenes.GameScene,
-
       // Adding physics
       physics: {
-        default: "arcade",
+        default: keys.physics.arcade,
         arcade: {
           gravity: { y: 1000 },
         },
@@ -27,38 +22,42 @@ export class GameScene extends Phaser.Scene {
     });
   }
 
-  init() {}
+  init(data: Object) {
+    console.log(`Scene ${keys.scenes.GameScene} passed data`, data);
+  }
 
   preload() {
     // Set loading path
     this.load.path = "../assets/";
 
     // Loading Sample Map JSON
-    this.load.tilemapTiledJSON("map", "tilemaps/sample-tilemap.json");
+    this.load.tilemapTiledJSON(
+      keys.tilemaps.sampleMap,
+      "tilemaps/sample-tilemap.json",
+    );
 
     // Loading Sample Map Tileset
-    this.load.image("sample-tileset", "tilesets/sample-tileset.png");
+    this.load.image(keys.tilesets.sampleTileset, "tilesets/sample-tileset.png");
   }
 
   create() {
     // Setting map
     const { Tilemap, MapData } = Phaser.Tilemaps;
-    this.map = this.make.tilemap({ key: "map" });
+    this.map = this.make.tilemap({ key: keys.tilemaps.sampleMap });
 
     // Adding tileset image to map
-    this.tileset = this.map.addTilesetImage("sample-tileset");
+    this.tileset = this.map.addTilesetImage(keys.tilesets.sampleTileset);
 
-    // Setting background layer
+    // Setting layers
     this.bgLayer = this.map.createDynamicLayer(
-      "Background",
+      keys.layers.sampleMap.background,
       this.tileset,
       0,
       0,
     );
 
-    // Setting ground layer
     this.groundLayer = this.map.createDynamicLayer(
-      "Ground",
+      keys.layers.sampleMap.ground,
       this.tileset,
       0,
       0,
@@ -69,9 +68,6 @@ export class GameScene extends Phaser.Scene {
       "Spawn",
       (obj) => obj.name === "Spawn Point",
     );
-
-    // Adding sprite
-    //this.mushroom = new Mushroom(this, 128, 64, "mushroom");
 
     // Adding player
     this.player = new Player(this, spawn.x, spawn.y);
@@ -92,13 +88,13 @@ export class GameScene extends Phaser.Scene {
       .setScrollFactor(0);
 
     // Setting camera
-    this.cameras.main.startFollow(this.player.sprite);
     this.cameras.main.setBounds(
       0,
       0,
       this.map.widthInPixels,
       this.map.heightInPixels,
     );
+    this.cameras.main.startFollow(this.player.sprite);
   }
 
   update() {

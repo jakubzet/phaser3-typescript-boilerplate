@@ -15,9 +15,8 @@ export class BootScene extends Phaser.Scene {
 
   preload() {
     this.load.path = "../assets/";
-
-    this.load.image("loaderBg", "images/loader-bg.png");
-    this.load.image("loaderBar", "images/loader-bar.png");
+    this.load.image(keys.images.loaderBg, "images/loader-bg.png");
+    this.load.image(keys.images.loaderBar, "images/loader-bar.png");
 
     this.add.text(100, 100, "Loading fonts...");
 
