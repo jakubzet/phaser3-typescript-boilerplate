@@ -3,7 +3,7 @@ import keys from "../constants/keys";
 import { ControlsScheme } from "../interfaces";
 
 export class Player {
-  buttons: ControlsScheme;
+  buttons: object;
   sprite: Phaser.Physics.Arcade.Sprite;
   scene: Phaser.Scene;
 
@@ -48,7 +48,8 @@ export class Player {
   }
 
   update() {
-    const { buttons, sprite } = this;
+    const buttons = <ControlsScheme>this.buttons;
+    const sprite = this.sprite;
     const onGround = sprite.body.blocked.down;
     const acceleration = onGround ? 600 : 200;
 

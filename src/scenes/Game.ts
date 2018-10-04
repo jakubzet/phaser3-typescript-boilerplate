@@ -6,7 +6,7 @@ export class GameScene extends Phaser.Scene {
   player!: Player;
   tileset!: Phaser.Tilemaps.Tileset;
   map!: Phaser.Tilemaps.Tilemap;
-  bgLayer!: Phaser.Tilemaps.DynamicTilemapLayer;
+  bgLayer!: Phaser.Tilemaps.StaticTilemapLayer;
   groundLayer!: Phaser.Tilemaps.DynamicTilemapLayer;
 
   constructor() {
@@ -49,7 +49,7 @@ export class GameScene extends Phaser.Scene {
     this.tileset = this.map.addTilesetImage(keys.tilesets.sampleTileset);
 
     // Setting layers
-    this.bgLayer = this.map.createDynamicLayer(
+    this.bgLayer = this.map.createStaticLayer(
       keys.layers.sampleMap.background,
       this.tileset,
       0,
@@ -85,16 +85,16 @@ export class GameScene extends Phaser.Scene {
         fill: "#2299ff",
         smoothed: false,
       })
-      .setScrollFactor(0);
+      .setScrollFactor(0.5, 0);
 
-    // Setting camera
+    // Setting camera and world bounds
+    this.cameras.main.startFollow(this.player.sprite, false, 0.5, 0.5);
     this.cameras.main.setBounds(
       0,
       0,
       this.map.widthInPixels,
       this.map.heightInPixels,
     );
-    this.cameras.main.startFollow(this.player.sprite);
   }
 
   update() {

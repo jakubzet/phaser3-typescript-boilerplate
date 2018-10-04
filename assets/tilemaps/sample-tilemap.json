@@ -2,31 +2,34 @@
  "infinite":false,
  "layers":[
         {
-         "data":"AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAA=",
+         "data":"AgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAA==",
          "encoding":"base64",
          "height":5,
+         "id":4,
          "name":"Background",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":10,
+         "width":14,
          "x":0,
          "y":0
         }, 
         {
-         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAA=",
+         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAwAAAAQAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAA==",
          "encoding":"base64",
          "height":5,
+         "id":5,
          "name":"Ground",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":10,
+         "width":14,
          "x":0,
          "y":0
         }, 
         {
          "draworder":"topdown",
+         "id":3,
          "name":"Spawn",
          "objects":[
                 {
@@ -47,10 +50,11 @@
          "x":0,
          "y":0
         }],
+ "nextlayerid":6,
  "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.1.6",
+ "tiledversion":"1.2.0",
  "tileheight":64,
  "tilesets":[
         {
@@ -64,44 +68,43 @@
          "spacing":0,
          "tilecount":4,
          "tileheight":64,
-         "tileproperties":
-            {
-             "0":
+         "tiles":[
                 {
-                 "collides":true
-                },
-             "1":
+                 "id":0,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
                 {
-                 "collides":false
-                },
-             "2":
+                 "id":1,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
                 {
-                 "collides":true
-                },
-             "3":
+                 "id":2,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
                 {
-                 "collides":true
-                }
-            },
-         "tilepropertytypes":
-            {
-             "0":
-                {
-                 "collides":"bool"
-                },
-             "1":
-                {
-                 "collides":"bool"
-                },
-             "2":
-                {
-                 "collides":"bool"
-                },
-             "3":
-                {
-                 "collides":"bool"
-                }
-            },
+                 "id":3,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }],
          "tilewidth":64,
          "transparentcolor":"#fffd84"
         }, 
@@ -116,49 +119,48 @@
          "spacing":0,
          "tilecount":4,
          "tileheight":64,
-         "tileproperties":
-            {
-             "0":
+         "tiles":[
                 {
-                 "collides":true
-                },
-             "1":
+                 "id":0,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
                 {
-                 "collides":false
-                },
-             "2":
+                 "id":1,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":false
+                        }]
+                }, 
                 {
-                 "collides":true
-                },
-             "3":
+                 "id":2,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }, 
                 {
-                 "collides":true
-                }
-            },
-         "tilepropertytypes":
-            {
-             "0":
-                {
-                 "collides":"bool"
-                },
-             "1":
-                {
-                 "collides":"bool"
-                },
-             "2":
-                {
-                 "collides":"bool"
-                },
-             "3":
-                {
-                 "collides":"bool"
-                }
-            },
+                 "id":3,
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }]
+                }],
          "tilewidth":64,
          "transparentcolor":"#fffd84"
         }],
  "tilewidth":64,
  "type":"map",
- "version":1,
- "width":10
+ "version":1.2,
+ "width":14
 }
